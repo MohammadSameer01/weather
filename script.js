@@ -58,7 +58,9 @@ async function searchWeather() {
     let stateName = response.sys.country;
 
     cityName.innerHTML = `${response.name} , <span class= 'stateNameClass'>${stateName}</span>`;
-    degree.innerHTML = `${Math.round(response.main.temp)}&deg`;
+    degree.innerHTML = `${Math.round(
+      response.main.temp
+    )}&deg <span>Celsius</span>`;
     description.innerText = response.weather[0].description;
     weatherImage.src = `https://openweathermap.org/img/wn/${response.weather[0].icon}.png`;
     windSpeed.innerText = `${(response.wind.speed * 3.6).toFixed(2)}km/h`;
