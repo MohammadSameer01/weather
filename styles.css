@@ -63,6 +63,11 @@ main {
   flex-direction: column;
   gap: 12px;
   position: relative; /* for error*/
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.weatherContainer::-webkit-scrollbar {
+  display: none;
 }
 .searchContainer {
   display: flex;
@@ -119,7 +124,6 @@ main {
 }
 .resultContainer {
   border-radius: 4px;
-  overflow: hidden;
   padding: 12px;
   visibility: hidden;
   height: 0;
@@ -127,7 +131,6 @@ main {
 .result200 {
   visibility: visible;
   transition: 0.3s ease;
-  overflow: auto;
   height: 460px;
 }
 .tempContainer {
@@ -137,9 +140,13 @@ main {
 }
 .tempContainer .tempCntHeading {
   width: 100%;
-  color: var(--borderColor);
   position: relative;
+  font-size: 1.15em;
   padding-right: 24px;
+}
+.tempCntHeading span {
+  font-weight: 600;
+  color: var(--themeblack);
 }
 .stateNameClass {
   font-size: 0.75em;
@@ -169,6 +176,11 @@ main {
   font-weight: 900;
   font-family: var(--ffNunitoSans);
   line-height: 1em;
+}
+.degree span {
+  font-weight: normal;
+  font-size: 1rem;
+  margin-left: -45px;
 }
 .description {
   font-size: 1.15em;
@@ -230,7 +242,6 @@ main {
 @media screen and (max-width: 720px) {
   section {
     height: 100%;
-    overflow: hidden;
   }
   .weatherContainer {
     height: 100%;
@@ -238,6 +249,9 @@ main {
     background: unset;
     transform: translate(0, 180px);
     transition: 0.3s ease;
+  }
+  .tempCntHeading {
+    color: var(--themeWhite) !important;
   }
   .result200 {
     height: auto;
@@ -272,14 +286,21 @@ main {
   .sunriseSunset div {
     width: 50%;
   }
+
   .extraInfo {
     grid-template-columns: 1fr;
-    grid-gap: 4px;
   }
   .extraInfo div {
     border: none;
     border-radius: 0;
     border-bottom: 1px solid var(--borderColor);
     padding: 0;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .extraInfo > div > p {
+    font-size: 0.6em;
   }
 }
