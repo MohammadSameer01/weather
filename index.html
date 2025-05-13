@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="theme-color" content="#e8e8e8" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accurate Weather Forecast | YourCity Weather Updates</title>
+
+    <!-- SEO Meta -->
+    <meta
+      name="description"
+      content="Get accurate real-time weather updates, forecasts, temperature, humidity, and wind conditions for your city. Stay informed with our clean and fast weather app."
+    />
+    <meta
+      name="keywords"
+      content="weather, weather app, forecast, temperature, humidity, weather today, real-time weather, local forecast"
+    />
+    <meta name="author" content="Sameer" />
+
+    <!-- Open Graph Meta for social sharing -->
+    <meta
+      property="og:title"
+      content="Accurate Weather Forecast - Real-time Weather Info"
+    />
+    <meta
+      property="og:description"
+      content="Stay updated with the latest weather info for your location. Accurate, fast, and easy to use."
+    />
+    <meta property="og:image" content="https://yourdomain.com/preview.jpg" />
+    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Accurate Weather Forecast" />
+    <meta
+      name="twitter:description"
+      content="Check today's weather conditions and forecasts instantly."
+    />
+    <meta name="twitter:image" content="https://yourdomain.com/preview.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <!-- Schema Markup (basic example) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WeatherForecast",
+        "name": "WeatherNow - Live Weather Updates",
+        "url": "https://yourdomain.com/",
+        "description": "Live local weather updates with forecasts and temperature info."
+      }
+    </script>
+  </head>
+  <body>
+    <div class="loader" style="display: none">
+      <div class="spinner"></div>
+    </div>
+    <div class="hero-background"></div>
+    <section class="search-city-section">
+      <div class="search-city-container">
+        <input type="text" id="search-city" placeholder="Search Location" />
+        <div class="search-icon-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            />
+          </svg>
+        </div>
+      </div>
+    </section>
+    <section class="weather-data-section">
+      <div class="city-details-container">
+        <div class="city-name"></div>
+        <div class="city-country-container">
+          <span class="country-name"></span>
+          <img src="" alt="" class="country-flag" loading="lazy" />
+        </div>
+      </div>
+      <div class="temperature-container">
+        <div class="current-temp-container">
+          <span class="temp"></span>
+          <span class="weather-description"></span>
+          <span>Feels like <span class="feelsLike"></span></span>
+        </div>
+      </div>
+      <div class="other-data-container">
+        <div class="otd-left">
+          <div class="otd-left-top">
+            <div class="wind-speed-details-container">
+              <span class="wind-direction">South</span>
+              <span class="wind-speed">12.0km/h</span>
+            </div>
+            <div class="wind-speed-compass">
+              <span>N</span>
+              <span>E</span>
+              <span>S</span>
+              <span>W</span>
+              <div class="compass-needle"></div>
+            </div>
+          </div>
+          <div class="otd-left-bottom">
+            <div class="sunrise-container">
+              <span class="sunrise"></span>
+              <span>Sunrise</span>
+            </div>
+            <div class="sunset-container">
+              <span class="sunset"></span>
+              <span>Sunset</span>
+            </div>
+          </div>
+        </div>
+        <div class="otd-right">
+          <div class="otd-right-container">
+            <span>Humidity</span>
+            <span class="humidity"></span>
+          </div>
+          <div class="otd-right-container">
+            <span>Min temp</span>
+            <span class="min-temperature"></span>
+          </div>
+          <div class="otd-right-container">
+            <span>Max temp</span>
+            <span class="max-temperature"></span>
+          </div>
+          <div class="otd-right-container">
+            <span>Sea level</span>
+            <span class="sea-level"></span>
+          </div>
+          <div class="otd-right-container">
+            <span>Ground level</span>
+            <span class="ground-level"></span>
+          </div>
+        </div>
+      </div>
+      <div class="paragraph-container">
+        <span class="weather-paragraph">
+          Afghanistan is located in Asia. The general weather pattern is
+          described as Arid to semi-arid; continental, with temperatures
+          typically ranging from -10°C to 40°C. Notable weather characteristics
+          include: Cold winters in mountainous areas; hot, dry summers; limited
+          rainfall.
+        </span>
+      </div>
+    </section>
+    <script src="countries.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

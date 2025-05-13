@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --clear-sky: linear-gradient(to bottom, #a1c4fd, #c2e9fb, #ffffff);
+  --few-clouds: linear-gradient(to bottom, #304352, #d7d2cc, #ffffff);
+  --scattered-clouds: linear-gradient(to bottom, #2c3e50, #bdc3c7, #ffffff);
+  --broken-clouds: linear-gradient(to bottom, #757f9a, #d7dde8, #ffffff);
+  --shower-rain: linear-gradient(to bottom, #667db6, #0082c8, #ffffff);
+  --rain: linear-gradient(to bottom, #2c3e50, #4ca1af, #ffffff);
+  --thunderstorm: linear-gradient(to bottom, #0f2027, #203a43, #ffffff);
+  --snow: linear-gradient(to bottom, #e0eafc, #cfdef3, #ffffff);
+  --mist: linear-gradient(to bottom, #d3cce3, #e9e4f0, #ffffff);
+  --haze: linear-gradient(to bottom, #c9d6ff, #e2e2e2, #ffffff);
+  --smoke: linear-gradient(to bottom, #616161, #9bc5c3, #ffffff);
+  --dust: linear-gradient(to bottom, #ba8b02, #d2b48c, #ffffff);
+  --fog: linear-gradient(to bottom, #b8c6db, #f5f7fa, #ffffff);
+  --sand: linear-gradient(to bottom, #debb6d, #f5f2e7, #ffffff);
+  --tornado: linear-gradient(to bottom, #232526, #414345, #ffffff);
+
+  /* Text Colors - based on background brightness */
+  --text-on-clear: #1a1a1a; /* dark text for light sky */
+  --text-on-clouds: #ffffff; /* white on dark clouds */
+  --text-on-scattered: #ffffff;
+  --text-on-broken: #ffffff;
+  --text-on-shower: #ffffff;
+  --text-on-rain: #ffffff;
+  --text-on-thunderstorm: #ffffff;
+  --text-on-snow: #1a1a1a;
+  --text-on-mist: #1a1a1a;
+  --text-on-haze: #1a1a1a;
+  --text-on-smoke: #ffffff;
+  --text-on-dust: #ffffff;
+  --text-on-fog: #1a1a1a;
+  --text-on-sand: #1a1a1a;
+  --text-on-tornado: #ffffff;
+
+  --font-poppins: "Poppins", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-poppins);
+  scroll-behavior: smooth;
+}
+svg {
+  height: 30px;
+}
+/*  */
+/*  */
+/*  */
+.search-city-section {
+  position: sticky;
+  top: 12px;
+
+  margin: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+
+  transition: 0.3s ease;
+}
+.search-city-container {
+  display: flex;
+  position: relative;
+}
+.search-city-container input {
+  font-size: 1em;
+  padding: 18px 12px;
+  width: calc(100% - 60px);
+  border: none;
+  background: none;
+}
+.search-city-container input:focus {
+  outline: none;
+}
+.search-city-container .search-icon-container {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 60px;
+}
+/*  */
+/*  */
+/*  */
+.hero-background {
+  background: #e8e8e8;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+/*  */
+/*  */
+/*  */
+.weather-data-section {
+  margin: 12px;
+  padding: 12px;
+  margin-top: 24px;
+}
+.city-details-container {
+  display: flex;
+  justify-content: space-between;
+}
+.city-name {
+  font-size: 1.25em;
+  max-width: 50%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 500;
+}
+.city-country-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 50%;
+}
+.country-name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.city-country-container img {
+  width: 30px;
+}
+/*  */
+/*  */
+/*  */
+.temperature-container {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: calc(100dvh - 174.4px - 120px); /* 186.4px*/
+  transition: 0.2s ease;
+}
+.current-temp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.temp {
+  font-size: 8em;
+  font-weight: 600;
+  line-height: 1em;
+}
+/*  */
+/*  */
+/*  */
+.other-data-container {
+  height: 240px;
+  display: flex;
+  gap: 8px;
+}
+.other-data-container > div {
+  height: 100%;
+  width: 50%;
+  border-radius: 24px;
+}
+.otd-left {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+.otd-left > div {
+  height: 50%;
+  width: 100%;
+  border-radius: 24px;
+  padding: 12px;
+  background: white;
+  /* box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.15),
+    -8px -8px 16px rgba(255, 255, 255, 0.7); */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.otd-left-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 0.95em;
+}
+.wind-speed-details-container {
+  display: flex;
+  flex-direction: column;
+}
+.wind-speed-compass {
+  width: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+}
+.wind-speed-compass span {
+  position: absolute;
+  font-size: 0.75em;
+  height: 18px;
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+}
+.wind-speed-compass span:nth-child(1) {
+  top: 0;
+}
+.wind-speed-compass span:nth-child(2) {
+  right: 0;
+}
+.wind-speed-compass span:nth-child(3) {
+  bottom: 0;
+}
+.wind-speed-compass span:nth-child(4) {
+  left: 0;
+}
+.compass-needle {
+  position: relative;
+  height: 50%;
+  background: red;
+  width: 4px;
+  margin: 0 auto;
+}
+.compass-needle::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 15px solid red;
+}
+.otd-left-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.95em;
+}
+.otd-left-bottom div span:nth-child(2) {
+  color: red;
+}
+.otd-right {
+  background: white;
+  /* box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.15),
+    -8px -8px 16px rgba(255, 255, 255, 0.7); */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 12px;
+  font-size: 0.8em;
+}
+.otd-right > div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+/*  */
+.paragraph-container {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  margin-top: 12px;
+  padding: 24px 12px;
+  color: rgb(80, 80, 80);
+  font-size: 0.9em;
+}
+/*  */
+/*  */
+/*  */
+.loader {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 1;
+}
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ccc;
+  border-top-color: red;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
