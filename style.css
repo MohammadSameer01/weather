@@ -61,6 +61,7 @@ svg {
   backdrop-filter: blur(12px);
 
   transition: 0.3s ease;
+  z-index: 1;
 }
 .search-city-container {
   display: flex;
@@ -181,10 +182,13 @@ svg {
 }
 .otd-left-top {
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: space-between;
   gap: 6px;
-  font-size: 0.95em;
+  font-size: 0.9em;
+
+  height: 70% !important;
 }
 .wind-speed-details-container {
   display: flex;
@@ -192,6 +196,7 @@ svg {
 }
 .wind-speed-compass {
   width: 50%;
+  max-width: 80px;
   aspect-ratio: 1;
   border-radius: 50%;
   display: flex;
@@ -222,28 +227,37 @@ svg {
 }
 .compass-needle {
   position: relative;
-  height: 50%;
+  height: 20%;
   background: red;
-  width: 4px;
+  top: -10%;
+  width: 2px;
   margin: 0 auto;
+  transform-origin: bottom !important;
 }
 .compass-needle::after {
   content: "";
   position: absolute;
-  top: -15px;
+  top: -7.5px;
   left: 50%;
   transform: translateX(-50%) translateY(50%);
   width: 0;
   height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 15px solid red;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-bottom: 7.5px solid red;
 }
+.compass-center-point {
+  border: 3px solid red;
+  border-radius: 50%;
+  position: absolute;
+}
+/*  */
 .otd-left-bottom {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 0.95em;
+  font-size: 0.9em;
+  height: 30% !important;
 }
 .otd-left-bottom div span:nth-child(2) {
   color: red;
@@ -273,6 +287,22 @@ svg {
   padding: 24px 12px;
   color: rgb(80, 80, 80);
   font-size: 0.9em;
+}
+/*  */
+.maps-container {
+  width: 100%;
+  height: 300px;
+  margin-top: 12px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  background: white;
+}
+#city-map {
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
 }
 /*  */
 /*  */
