@@ -118,6 +118,7 @@ async function updateData() {
     updateBackground(data.weather[0].description);
     searchBarStyles();
     updateWind(data.wind);
+    showWeatherMap(data);
     //
     //
     //
@@ -147,10 +148,21 @@ function findCountry(identifier) {
 }
 function searchBarStyles() {
   let searchInputContainer = document.querySelector(".search-city-section");
+  let allSections = document.querySelectorAll("section");
   if (document.querySelector(".country-name").textContent == "") {
     searchInputContainer.style.marginTop = "240px";
+    allSections.forEach((sec) => {
+      if (!sec.classList.contains("search-city-section")) {
+        sec.style.display = "none";
+      }
+    });
   } else {
     searchInputContainer.style.marginTop = "0";
+    allSections.forEach((sec) => {
+      if (!sec.classList.contains("search-city-section")) {
+        sec.style.display = "";
+      }
+    });
   }
 }
 function updateBackground(weatherDescription) {
@@ -223,8 +235,29 @@ function weatherParagraph(countryCode, cityName) {
 
   return `${cityName}, located in ${country} (${continent}), typically experiences ${weatherPattern} climate. Temperature ranges from ${temperatureRange}. Notable weather characteristics include: ${notes}`;
 }
+function showWeatherMap(data) {
+  const lat = data.coord.lat;
+  const lon = data.coord.lon;
+
+  // If map already exists, remove it before re-creating
+  if (window.weatherMap) {
+    window.weatherMap.remove();
+  }
+
+  // Create a new map
+  window.weatherMap = L.map("city-map").setView([lat, lon], 13);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "© OpenStreetMap contributors",
+  }).addTo(window.weatherMap);
+
+  L.marker([lat, lon])
+    .addTo(window.weatherMap)
+    .bindPopup(`${data.name}, ${data.sys.country}`)
+    .openPopup();
+}
 //
 //
 //
-searchBarStyles();
 onStart();
+searchBarStyles();
