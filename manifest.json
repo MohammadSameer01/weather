@@ -2,7 +2,7 @@
   "name": "Weather Info - Global Conditions",
   "short_name": "WeatherInfo",
   "description": "Get real-time weather updates for any country around the world.",
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#e8e8e8",
   "theme_color": "#e8e8e8",
