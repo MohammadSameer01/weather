@@ -27,8 +27,14 @@
       property="og:description"
       content="Stay updated with the latest weather info for your location. Accurate, fast, and easy to use."
     />
-    <meta property="og:image" content="https://yourdomain.com/preview.jpg" />
-    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta
+      property="og:image"
+      content="https://mohammadsameer01.github.io/weather/preview.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://mohammadsameer01.github.io/weather"
+    />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card -->
@@ -38,11 +44,13 @@
       name="twitter:description"
       content="Check today's weather conditions and forecasts instantly."
     />
-    <meta name="twitter:image" content="https://yourdomain.com/preview.jpg" />
-
+    <meta
+      name="twitter:image"
+      content="https://mohammadsameer01.github.io/weather/preview.jpg"
+    />
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" />
-
+    <link rel="icon" href="/assets/logo512.png" />
+    <!--  -->
     <link rel="stylesheet" href="style.css" />
     <link rel="manifest" href="manifest.json" />
     <!-- Schema Markup (basic example) -->
@@ -55,6 +63,13 @@
         "description": "Live local weather updates with forecasts and temperature info."
       }
     </script>
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   </head>
   <body>
     <div class="loader" style="display: none">
@@ -102,6 +117,7 @@
               <span>S</span>
               <span>W</span>
               <div class="compass-needle"></div>
+              <div class="compass-center-point"></div>
             </div>
           </div>
           <div class="otd-left-bottom">
@@ -140,12 +156,15 @@
       </div>
       <div class="paragraph-container">
         <span class="weather-paragraph">
-          Afghanistan is located in Asia. The general weather pattern is
-          described as Arid to semi-arid; continental, with temperatures
-          typically ranging from -10°C to 40°C. Notable weather characteristics
-          include: Cold winters in mountainous areas; hot, dry summers; limited
-          rainfall.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
+          minima eaque unde atque eligendi dolores blanditiis officiis
+          temporibus similique doloribus dolor reiciendis voluptate fuga quam,
+          explicabo sit. Illo, consectetur hic perferendis eveniet sunt, dolorum
+          quia voluptate animi incidunt distinctio ipsam.
         </span>
+      </div>
+      <div class="maps-container">
+        <div id="city-map"></div>
       </div>
     </section>
     <script src="countries.js"></script>
