@@ -2004,3 +2004,15 @@ const countries = [
     notes: "Wet season November to March; dry season; cooler in highlands",
   },
 ];
+const topCitiesInIndia = [
+  "Mumbai",
+  "Delhi",
+  "Bangalore",
+  "Hyderabad",
+  "Chennai",
+  "Kolkata",
+  "Pune",
+  "Ahmedabad",
+  "Jaipur",
+  "Lucknow",
+];
