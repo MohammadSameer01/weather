@@ -1,5 +1,6 @@
 const searchInput = document.getElementById("search-city");
 const searchButton = document.querySelector(".search-icon-container");
+const carouselContainer = document.querySelector(".carousel-container");
 //
 //
 //
@@ -42,12 +43,10 @@ async function updateData() {
       alert("Please enter a city name.");
       return;
     }
-
     // Show loader
     loader.style.display = "flex";
 
     const data = await getWeather(city);
-    console.log(data);
 
     if (!data || data.cod !== 200) {
       alert("City not found or API error.");
@@ -192,7 +191,8 @@ function updateBackground(weatherDescription) {
   }
 }
 function onStart() {
-  searchInput.value = "Hyderabad";
+  searchInput.value = "Warangal";
+  getWeatherOfTopCities();
   updateData();
 }
 function updateWind(windData) {
@@ -256,6 +256,50 @@ function showWeatherMap(data) {
     .bindPopup(`${data.name}, ${data.sys.country}`)
     .openPopup();
 }
+function getWeatherOfTopCities() {
+  topCitiesInIndia.forEach((city) => {
+    getWeather(city)
+      .then((data) => {
+        carouselContainer.append(
+          addCarouselElement(data.name, `${data.main.temp.toFixed()}°`)
+        );
+      })
+      .catch((error) => {
+        console.error(`Error fetching weather for ${city}:`, error);
+      });
+  });
+}
+function addCarouselElement(cityName, weather) {
+  const parent = document.createElement("div");
+  const child1 = document.createElement("div");
+  const child2 = document.createElement("div");
+  //
+  parent.setAttribute("class", "carousel-card");
+  child1.setAttribute("class", "carousel-city-name");
+  child2.setAttribute("class", "carousel-city-weather");
+  //
+  if (cityName && weather) {
+    child1.textContent = cityName;
+    child2.textContent = weather;
+  } else {
+    console.log("Name and weather not found");
+  }
+  //
+  parent.append(child1, child2);
+  //
+  return parent;
+}
+//
+//
+//
+carouselContainer.addEventListener("click", (e) => {
+  const card = e.target.closest(".carousel-card");
+  if (card) {
+    const cityName = card.querySelector(".carousel-city-name")?.innerHTML;
+    searchInput.value = cityName;
+    updateData();
+  }
+});
 //
 //
 //
