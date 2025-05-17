@@ -38,5 +38,5 @@ A responsive, SEO-friendly weather web application built using **HTML**, **CSS**
 
 1. **Clone this repository**  
    ```bash
-   git clone https://github.com/yourusername/weather-app.git
+   git clone https://github.com/MohammadSameer01/weather.git
    cd weather-app
